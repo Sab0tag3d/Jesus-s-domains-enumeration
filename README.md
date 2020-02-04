@@ -1,6 +1,19 @@
 # Jesus's domains enumeration
 Here is my cheat sheet of subdomain enumeration methods, collected on the Internet.
 
+## Table of Contents
+* [Subdomain gathering. Passive recon](#subdomain-gathering-passive-recon)  
+	* [Subdomain bruteforcing](#subdomain-bruteforcing)
+	* [Reverse DNS sweeping](#reverse-dns-sweeping)
+  * [Subdomain name alterations](#subdomain-name-alterations)
+  * [Certificate search](#certificate-search)
+  * [APIs](#apis)
+  * [Domain validation](#domain-validation)
+* [Next steps. Active recon](#next-steps-active-recon)
+  * [Collect IP addresses](#collect-ip-addresses)
+  * [Gathering additional domains from web resources](#gathering-additional-domains-from-web-resources)
+  * [Gathering additional domains from non web resources](#gathering-additional-domains-from-non-web-resources)
+
 ## Subdomain gathering. Passive recon
 
 ### Subdomain bruteforcing
@@ -32,13 +45,12 @@ ORDER BY c DESC
  > Whichever tool you choose, it is important to configure it correctly. Every network area (place where you will start bruteforce) have fastest DNS resolvers and here is tool to collect few: [namebench](https://code.google.com/archive/p/namebench/).  
 > Also you need a list of public dns recolvers: [Public DNS Server List](https://public-dns.info/)  
 > **Warning**: it could be illegal in some countries
-
 ### Reverse DNS sweeping  
 Start with main domain here: [Hurricane Electric BGP Toolkit](https://bgp.he.net/) and check every AS with this [tool](https://github.com/jnyryan/reverse-dns-sweep).
 
 > It could be usefull for big organizations, in common case you will find all mail servers.
 
-### Subdomain name alterations/permutations
+### Subdomain name alterations
 [Altdns](https://github.com/infosec-au/altdns) - Python tool that could generate a lot of mutation of input domains list. 
 
 [Amass](https://github.com/OWASP/Amass/blob/master/doc/user_guide.md) have mutation module
@@ -139,5 +151,5 @@ host -t axfr domain.name dns-server
 - :hourglass_flowing_sand: BGP
 - :hourglass_flowing_sand: SNMP
 
-### :hourglass_flowing_sand: Monitoring new 
+### :hourglass_flowing_sand: Monitoring new domains
 [GitHub - BitTheByte/Monitorizer: The ultimate subdomain monitorization framework](https://github.com/BitTheByte/Monitorizer)
