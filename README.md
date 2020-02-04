@@ -162,5 +162,5 @@ host -t axfr domain.name dns-server
 - :hourglass_flowing_sand: SNMP
 
 ### :hourglass_flowing_sand: Monitoring new domains  
-[BitTheByte/Monitorizer: The ultimate subdomain monitorization framework](https://github.com/BitTheByte/Monitorizer)  
-[clirimemini/Keye: Keye is a reconnaissance tool that was written in Python with SQLite3 integrated. After adding a single URL, or a list of URLs, it will make a request to these URLs and try to detect changes based on their response's body length.](https://github.com/clirimemini/Keye)
+* [BitTheByte/Monitorizer: The ultimate subdomain monitorization framework](https://github.com/BitTheByte/Monitorizer)  
+* [clirimemini/Keye: Keye is a reconnaissance tool that was written in Python with SQLite3 integrated. After adding a single URL, or a list of URLs, it will make a request to these URLs and try to detect changes based on their response's body length.](https://github.com/clirimemini/Keye)
