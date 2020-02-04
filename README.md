@@ -5,7 +5,7 @@ Here is my cheat sheet of subdomain enumeration methods, collected on the Intern
 * [Subdomain gathering. Passive recon](#subdomain-gathering-passive-recon)  
 	* [Subdomain bruteforcing](#subdomain-bruteforcing)
 	* [Reverse DNS sweeping](#reverse-dns-sweeping)
-  * [Look for domains by IP lists](#look-for-domains-by-ip-lists)
+  * [Look for domains in AS](#look-for-domains-in-as)
   * [Subdomain name alterations](#subdomain-name-alterations)
   * [Certificate search](#certificate-search)
   * [APIs](#apis)
@@ -55,7 +55,7 @@ One of the helpful ways is to use [Hurricane Electric BGP Toolkit](https://bgp.h
 1. Enter the main domain of the company.
 2. Go to the "IP Info" tab and copy the organization name.
 3. Find **all** AS of organization (also you can play with companies name).
-4. Use http://ipv4info.com/ or https://reverse.report/ with AS number
+4. Use http://ipv4info.com/ or [amass](https://github.com/OWASP/Amass/blob/master/doc/user_guide.md) with AS number
 
 #### Reverse DNS sweeping  
 [Tool](https://github.com/jnyryan/reverse-dns-sweep) for check every AS.
