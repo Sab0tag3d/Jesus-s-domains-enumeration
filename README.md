@@ -54,10 +54,8 @@ The key part of any successful bruteforcing is creating good wordlist:
 One of the helpful ways is to use [Hurricane Electric BGP Toolkit](https://bgp.he.net/) by this way:
 1. Enter the main domain of the company.
 2. Go to the "IP Info" tab and copy the organization name.
-3. Find all AS of organization (also you can play with companies name).
+3. Find **all** AS of organization (also you can play with companies name).
 4. Use http://ipv4info.com/ or https://reverse.report/ with AS number
-
-> This feature exists in amass, but realize not properly
 
 #### Reverse DNS sweeping  
 [Tool](https://github.com/jnyryan/reverse-dns-sweep) for check every AS.
