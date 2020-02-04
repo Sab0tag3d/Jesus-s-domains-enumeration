@@ -123,11 +123,13 @@ Python tool for this: [GitHub - vortexau/dnsvalidator: Maintains a list of IPv4 
 ## Next steps. Active recon
 
 ### Collect IP addresses
-There are a lot of ways to collect IP address. One of the helpful ways is to use [Hurricane Electric BGP Toolkit](https://bgp.he.net/) by this way:
+There are a lot of ways to collect IP address.  
+* One of the helpful ways is to use [Hurricane Electric BGP Toolkit](https://bgp.he.net/) by this way:
 1. Enter the main domain of the company.
 2. Go to the "IP Info" tab and copy the organization name.
 3. Find all AS of organization (also you can play with companies name).
 4. Grab all "prefixes v4".
+* After that, try to look for domains by IP lists: http://ipv4info.com/ and https://reverse.report/ 
 
 ### Gathering additional domains from web resources
 - Scan current domains and IPs for web resourses
