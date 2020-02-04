@@ -20,7 +20,9 @@ Here is my cheat sheet of subdomain enumeration methods, collected on the Intern
 The key part of any successful bruteforcing is creating good wordlist:
 - Good wordlist for start: [here](https://gist.github.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a)
 - Creating wordlist with google BigQuery: [assetnote/commonspeak2](https://github.com/assetnote/commonspeak2-wordlists)  
-Example of request for BigQuery:
+
+<details>
+	<summary>Example of request for BigQuery</summary>
 ```sql
 SELECT DISTINCT s, COUNT(s) c
 FROM (
@@ -36,6 +38,8 @@ WHERE s != '' and s not like '%@%'
 GROUP BY s
 ORDER BY c DESC
 ```
+
+</details>
 
 ##### Tools
 - Good cheat sheet about tools: [Subdomains Enumeration Cheat Sheet · Pentester Land](https://pentester.land/cheatsheets/2018/11/14/subdomains-enumeration-cheatsheet.html)
@@ -88,7 +92,10 @@ Interesting APIs:
 ### :hourglass_flowing_sand: Horizontal domain correlation
 
 ### Domain validation
-After subdomains collected it could be helpful to check it's validity. Here is a simple bash script to do that:
+After subdomains collected it could be helpful to check it's validity. 
+<details>
+<summary>Here is a simple bash script to do that</summary>
+
 ```bash
 
 #!/bin/bash
@@ -109,6 +116,9 @@ for line in $(cat $input_domain_list)
     done
 
 ```
+</details>
+
+Python tool for this: [GitHub - vortexau/dnsvalidator: Maintains a list of IPv4 DNS servers by verifying them against baseline servers, and ensuring accurate responses.](https://github.com/vortexau/dnsvalidator)
 
 ## Next steps. Active recon
 
