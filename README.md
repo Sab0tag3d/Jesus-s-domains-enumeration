@@ -19,28 +19,27 @@ Here is my cheat sheet of subdomain enumeration methods, collected on the Intern
 ### Subdomain bruteforcing
 The key part of any successful bruteforcing is creating good wordlist:
 - Good wordlist for start: [here](https://gist.github.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a)
-- Creating wordlist with google BigQuery: [assetnote/commonspeak2](https://github.com/assetnote/commonspeak2-wordlists)  
+- Creating wordlist with google BigQuery: [assetnote/commonspeak2](https://github.com/assetnote/commonspeak2-wordlists)
+	<details>
+	<summary>Example of request for BigQuery</summary>
 
-<details>
-<summary>Example of request for BigQuery</summary>
-	
-```sql
-SELECT DISTINCT s, COUNT(s) c
-FROM (
-  SELECT SPLIT(REGEXP_REPLACE(REGEXP_REPLACE(url, r'https?:\/\/([-a-zA-Z0-9@:%._\+~#=]{0,256}\.)([-a-zA-Z0-9@:%._\+~#=]{1,256}){1}\.([a-zA-Z]{1,6})', '\\1'), r'https?:\/\/.*', ''), '.') subd
-  FROM (
-    SELECT DISTINCT url
-    FROM `bigquery-public-data.github_repos.contents` 
-    CROSS JOIN UNNEST(REGEXP_EXTRACT_ALL(LOWER(content), r'https?:\/\/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z]{1,6}')) AS url
-)
-)
-CROSS JOIN UNNEST(subd) as s
-WHERE s != '' and s not like '%@%'
-GROUP BY s
-ORDER BY c DESC
-```
+	```sql
+	SELECT DISTINCT s, COUNT(s) c
+	FROM (
+	  SELECT SPLIT(REGEXP_REPLACE(REGEXP_REPLACE(url, r'https?:\/\/([-a-zA-Z0-9@:%._\+~#=]{0,256}\.)([-a-zA-Z0-9@:%._\+~#=]{1,256}){1}\.([a-zA-Z]{1,6})', '\\1'), r'https?:\/\/.*', ''), '.') subd
+	  FROM (
+	    SELECT DISTINCT url
+	    FROM `bigquery-public-data.github_repos.contents` 
+	    CROSS JOIN UNNEST(REGEXP_EXTRACT_ALL(LOWER(content), r'https?:\/\/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z]{1,6}')) AS url
+	)
+	)
+	CROSS JOIN UNNEST(subd) as s
+	WHERE s != '' and s not like '%@%'
+	GROUP BY s
+	ORDER BY c DESC
+	```
 
-</details>
+	</details>
 
 ##### Tools
 - Good cheat sheet about tools: [Subdomains Enumeration Cheat Sheet · Pentester Land](https://pentester.land/cheatsheets/2018/11/14/subdomains-enumeration-cheatsheet.html)
@@ -95,7 +94,7 @@ Interesting APIs:
 ### Domain validation
 After subdomains collected it could be helpful to check it's validity. 
 <details>
-<summary>Here is a simple bash script to do that</summary>
+<summary>Simple bash script for that</summary>
 
 ```bash
 
