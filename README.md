@@ -3,8 +3,8 @@ Here is my cheat sheet of subdomain enumeration methods, collected on the Intern
 
 ## Table of Contents
 * [Subdomain gathering. Passive recon](#subdomain-gathering-passive-recon)  
-	* [Subdomain bruteforcing](#subdomain-bruteforcing)
-	* [Reverse DNS sweeping](#reverse-dns-sweeping)
+  * [Subdomain bruteforcing](#subdomain-bruteforcing)
+  * [Reverse DNS sweeping](#reverse-dns-sweeping)
   * [Subdomain name alterations](#subdomain-name-alterations)
   * [Certificate search](#certificate-search)
   * [APIs](#apis)
