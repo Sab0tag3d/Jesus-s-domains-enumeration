@@ -5,11 +5,11 @@ Here is my cheat sheet of subdomain enumeration methods, collected on the Intern
 * [Subdomain gathering. Passive recon](#subdomain-gathering-passive-recon)  
 	* [Subdomain bruteforcing](#subdomain-bruteforcing)
 	* [Reverse DNS sweeping](#reverse-dns-sweeping)
-  * [Look for domains in AS](#look-for-domains-in-as)
   * [Subdomain name alterations](#subdomain-name-alterations)
   * [Certificate search](#certificate-search)
   * [APIs](#apis)
   * [Domain validation](#domain-validation)
+  * [Horizontal domain correlation](#horizontal-domain-correlation)
 * [Next steps. Active recon](#next-steps-active-recon)
   * [Gathering additional domains from web resources](#gathering-additional-domains-from-web-resources)
   * [Gathering additional domains from non web resources](#gathering-additional-domains-from-non-web-resources)
@@ -50,15 +50,8 @@ The key part of any successful bruteforcing is creating good wordlist:
 > Also you need a list of public dns recolvers: [Public DNS Server List](https://public-dns.info/)  
 > **Warning**: it could be illegal in some countries
 
-### Look for domains in AS
-One of the helpful ways is to use [Hurricane Electric BGP Toolkit](https://bgp.he.net/) by this way:
-1. Enter the main domain of the company.
-2. Go to the "IP Info" tab and copy the organization name.
-3. Find **all** AS of organization (also you can play with companies name).
-4. Use http://ipv4info.com/ or [amass](https://github.com/OWASP/Amass/blob/master/doc/user_guide.md) with AS number
-
-#### Reverse DNS sweeping  
-[Tool](https://github.com/jnyryan/reverse-dns-sweep) for check every AS.
+### Reverse DNS sweeping  
+Start with main domain here: [Hurricane Electric BGP Toolkit](https://bgp.he.net/) and check every AS with this [tool](https://github.com/jnyryan/reverse-dns-sweep).
 
 > It could be usefull for big organizations, in common case you will find all mail servers.
 
@@ -97,7 +90,13 @@ Interesting APIs:
 ### :hourglass_flowing_sand: Brute-force most common SRV records for a given Domain
 [dnsrecon/dnsrecon.py at master · darkoperator/dnsrecon · GitHub](https://github.com/darkoperator/dnsrecon/blob/master/dnsrecon.py)
 
-### :hourglass_flowing_sand: Horizontal domain correlation
+### Horizontal domain correlation
+One of the helpful ways is to use [Hurricane Electric BGP Toolkit](https://bgp.he.net/) by this way:
+1. Enter the main domain of the company.
+2. Go to the "IP Info" tab and copy the company name.
+3. Find **all** AS of company (also you can play with companies name).
+4. Try to find new domains in http://ipv4info.com/ or use [amass](https://github.com/OWASP/Amass/blob/master/doc/user_guide.md) with AS number.
+
 
 ### Domain validation
 After subdomains collected it could be helpful to check it's validity. 
