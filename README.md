@@ -50,13 +50,14 @@ The key part of any successful bruteforcing is creating good wordlist:
 > Also you need a list of public dns recolvers: [Public DNS Server List](https://public-dns.info/)  
 > **Warning**: it could be illegal in some countries
 
-### Look for domains by IP lists
-There are a lot of ways to collect IP address. One of the helpful ways is to use [Hurricane Electric BGP Toolkit](https://bgp.he.net/) by this way:
+### Look for domains in AS
+One of the helpful ways is to use [Hurricane Electric BGP Toolkit](https://bgp.he.net/) by this way:
 1. Enter the main domain of the company.
 2. Go to the "IP Info" tab and copy the organization name.
 3. Find all AS of organization (also you can play with companies name).
-4. Grab all "prefixes v4".
-5. Use http://ipv4info.com/ and https://reverse.report/ 
+4. Use http://ipv4info.com/ or https://reverse.report/ with AS number
+
+> This feature exists in amass, but realize not properly
 
 #### Reverse DNS sweeping  
 [Tool](https://github.com/jnyryan/reverse-dns-sweep) for check every AS.
