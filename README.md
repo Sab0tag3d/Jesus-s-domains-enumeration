@@ -22,7 +22,8 @@ The key part of any successful bruteforcing is creating good wordlist:
 - Creating wordlist with google BigQuery: [assetnote/commonspeak2](https://github.com/assetnote/commonspeak2-wordlists)  
 
 <details>
-	<summary>Example of request for BigQuery</summary>
+<summary>Example of request for BigQuery</summary>
+	
 ```sql
 SELECT DISTINCT s, COUNT(s) c
 FROM (
