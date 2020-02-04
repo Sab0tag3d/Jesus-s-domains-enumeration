@@ -125,15 +125,15 @@ There are a lot of ways to collect IP address. One of the helpful ways is to use
 #short nmap scan for web servers
 nmap -sV -sT -Pn -T4 -iL domains.txt -p80,81,443,832,981,1010,1311,2083,2087,2095,2096,4712,7000-7010,7080,7443,7474,8000-8014,8040-8091,8172,8118,8123,8172,8181,8222,8243,8280,8281,8333,8443,8500,8770-8780,8834,8880,8888,8983,9000,9043,9060,9080,9090,9091,9200,9800,9981,9999,9443,12443 -oX short_web_scan_domains.xml
 ```
-- Create web urls from nmap XML file
-[GitHub - ernw/nmap-parse-output: Converts/manipulates/extracts data from a Nmap scan output.](https://github.com/ernw/nmap-parse-output)
+- Create web urls from nmap XML file  
+[GitHub - ernw/nmap-parse-output: Converts/manipulates/extracts data from a Nmap scan output.](https://github.com/ernw/nmap-parse-output)  
 ```bash
 ./nmap-parse-output short_scan_ipv4.xml http-ports | sed 's/:80$//' | sed 's/:443$//' | sed 's/$/\//' | sort -u  >> $nmap_dir/domains_urls.txt
 ```
-- Extract new domains from HTML
+- Extract new domains from HTML  
 [GitHub - mhmdiaa/second-order: Second-order subdomain takeover scanner](https://github.com/mhmdiaa/second-order)
 - Extract domain names from Content Security Policy(CSP) headers
-- VHost discovery
+- VHost discovery  
 [GitHub - gwen001/vhost-brute: A PHP tool to brute force vhost configured on a server.](https://github.com/gwen001/vhost-brute)
 
 ### Gathering additional domains from non web resources
@@ -151,5 +151,5 @@ host -t axfr domain.name dns-server
 - :hourglass_flowing_sand: BGP
 - :hourglass_flowing_sand: SNMP
 
-### :hourglass_flowing_sand: Monitoring new domains
+### :hourglass_flowing_sand: Monitoring new domains  
 [GitHub - BitTheByte/Monitorizer: The ultimate subdomain monitorization framework](https://github.com/BitTheByte/Monitorizer)
