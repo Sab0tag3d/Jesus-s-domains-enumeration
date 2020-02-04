@@ -5,12 +5,12 @@ Here is my cheat sheet of subdomain enumeration methods, collected on the Intern
 * [Subdomain gathering. Passive recon](#subdomain-gathering-passive-recon)  
 	* [Subdomain bruteforcing](#subdomain-bruteforcing)
 	* [Reverse DNS sweeping](#reverse-dns-sweeping)
+  * [Look for domains by IP lists](#look-for-domains-by-ip-lists)
   * [Subdomain name alterations](#subdomain-name-alterations)
   * [Certificate search](#certificate-search)
   * [APIs](#apis)
   * [Domain validation](#domain-validation)
 * [Next steps. Active recon](#next-steps-active-recon)
-  * [Collect IP addresses](#collect-ip-addresses)
   * [Gathering additional domains from web resources](#gathering-additional-domains-from-web-resources)
   * [Gathering additional domains from non web resources](#gathering-additional-domains-from-non-web-resources)
 
@@ -49,8 +49,17 @@ The key part of any successful bruteforcing is creating good wordlist:
  > Whichever tool you choose, it is important to configure it correctly. Every network area (place where you will start bruteforce) have fastest DNS resolvers and here is tool to collect few: [namebench](https://code.google.com/archive/p/namebench/).  
 > Also you need a list of public dns recolvers: [Public DNS Server List](https://public-dns.info/)  
 > **Warning**: it could be illegal in some countries
-### Reverse DNS sweeping  
-Start with main domain here: [Hurricane Electric BGP Toolkit](https://bgp.he.net/) and check every AS with this [tool](https://github.com/jnyryan/reverse-dns-sweep).
+
+### Look for domains by IP lists
+There are a lot of ways to collect IP address. One of the helpful ways is to use [Hurricane Electric BGP Toolkit](https://bgp.he.net/) by this way:
+1. Enter the main domain of the company.
+2. Go to the "IP Info" tab and copy the organization name.
+3. Find all AS of organization (also you can play with companies name).
+4. Grab all "prefixes v4".
+5. Use http://ipv4info.com/ and https://reverse.report/ 
+
+#### Reverse DNS sweeping  
+[Tool](https://github.com/jnyryan/reverse-dns-sweep) for check every AS.
 
 > It could be usefull for big organizations, in common case you will find all mail servers.
 
@@ -121,15 +130,6 @@ for line in $(cat $input_domain_list)
 Python tool for this: [GitHub - vortexau/dnsvalidator: Maintains a list of IPv4 DNS servers by verifying them against baseline servers, and ensuring accurate responses.](https://github.com/vortexau/dnsvalidator)
 
 ## Next steps. Active recon
-
-### Collect IP addresses
-There are a lot of ways to collect IP address.  
-* One of the helpful ways is to use [Hurricane Electric BGP Toolkit](https://bgp.he.net/) by this way:
-1. Enter the main domain of the company.
-2. Go to the "IP Info" tab and copy the organization name.
-3. Find all AS of organization (also you can play with companies name).
-4. Grab all "prefixes v4".
-* After that, try to look for domains by IP lists: http://ipv4info.com/ and https://reverse.report/ 
 
 ### Gathering additional domains from web resources
 - Scan current domains and IPs for web resourses
