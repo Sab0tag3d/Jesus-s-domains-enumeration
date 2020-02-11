@@ -7,7 +7,7 @@ Here is my cheat sheet of subdomain enumeration methods, collected on the Intern
   * [Reverse DNS sweeping](#reverse-dns-sweeping)
   * [Subdomain name alterations](#subdomain-name-alterations)
   * [Certificate search](#certificate-search)
-  * [APIs](#apis)
+  * [External sources](#external-sources)
   * [Domain validation](#domain-validation)
   * [Horizontal domain correlation](#horizontal-domain-correlation)
 * [Next steps. Active recon](#next-steps-active-recon)
@@ -70,7 +70,7 @@ curl --silent 'https://crt.sh/?q=%.'mail.ru'&output=json' | jq '.[] | .name_valu
 ```
 > It's possible to connect to postgres database([examples](https://github.com/appsecco/the-art-of-subdomain-enumeration/blob/master/crtsh_enum_psql.sh)). Im some cases it could be more stable and faster.
 
-### APIs
+### External sources
 Exists a lot of online sources with APIs that collect subdomains, and so many tools use them. [Subfinder](https://github.com/projectdiscovery/subfinder) one of the best.
 
 Interesting APIs:
@@ -155,8 +155,11 @@ nmap -sV -sT -Pn -T4 -iL domains.txt -p53,U:53 -oX $nmap_dir/short_scan_ipv4.xml
 ```bash
 host -t axfr domain.name dns-server
 ```
-- collect TXT-record for tokens and other things
+- collect TXT-record for tokens and other things  
 [Analyzing DNS TXT Records to Fingerprint Online Service Providers](https://blog.netspi.com/analyzing-dns-txt-records-to-fingerprint-service-providers/)
+
+- extract new URLs from APK  
+[Diggy](https://github.com/s0md3v/Diggy/blob/master/diggy.sh) can extract endpoints/URLs from apk files.
 
 - :hourglass_flowing_sand: BGP
 - :hourglass_flowing_sand: SNMP
