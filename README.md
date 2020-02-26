@@ -19,27 +19,7 @@ Here is my cheat sheet of subdomain enumeration methods, collected on the Intern
 ### Subdomain bruteforcing
 The key part of any successful bruteforcing is creating good wordlist:
 - Good wordlist for start: [here](https://gist.github.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a)
-- Creating wordlist with google BigQuery: [assetnote/commonspeak2](https://github.com/assetnote/commonspeak2-wordlists)
-	<details>
-	<summary>Example of request for BigQuery</summary>
-
-	```sql
-	SELECT DISTINCT s, COUNT(s) c
-	FROM (
-	  SELECT SPLIT(REGEXP_REPLACE(REGEXP_REPLACE(url, r'https?:\/\/([-a-zA-Z0-9@:%._\+~#=]{0,256}\.)([-a-zA-Z0-9@:%._\+~#=]{1,256}){1}\.([a-zA-Z]{1,6})', '\\1'), r'https?:\/\/.*', ''), '.') subd
-	  FROM (
-	    SELECT DISTINCT url
-	    FROM `bigquery-public-data.github_repos.contents` 
-	    CROSS JOIN UNNEST(REGEXP_EXTRACT_ALL(LOWER(content), r'https?:\/\/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z]{1,6}')) AS url
-	)
-	)
-	CROSS JOIN UNNEST(subd) as s
-	WHERE s != '' and s not like '%@%'
-	GROUP BY s
-	ORDER BY c DESC
-	```
-
-	</details>
+- Creating wordlist with google BigQuery: [commonspeak2](https://github.com/assetnote/commonspeak2-wordlists). Request [example](https://github.com/Sab0tag3d/Jesus-s-domains-enumeration/blob/master/scripts/Biq_query_example.sql)
 
 ##### Tools
 - Good cheat sheet about tools: [Subdomains Enumeration Cheat Sheet](https://pentester.land/cheatsheets/2018/11/14/subdomains-enumeration-cheatsheet.html)
