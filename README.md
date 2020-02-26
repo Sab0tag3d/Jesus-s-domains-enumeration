@@ -35,10 +35,9 @@ Start with main domain here: [BGP Toolkit](https://bgp.he.net/) and check every 
 > It could be usefull for big organizations, in common case you will find all mail servers.
 
 ### Subdomain name alterations
-[Altdns](https://github.com/infosec-au/altdns) - Python tool that could generate a lot of mutation of input domains list. 
+[Altdns](https://github.com/infosec-au/altdns) - Python tool that could generate a lot of mutation of input domains list   
+> Altdns also have dns resolver but it's very slow, so it will be better to generate list with altdns and resolve it with another tool (with [massdns](https://github.com/blechschmidt/massdns))  
 [Amass](https://github.com/OWASP/Amass/blob/master/doc/user_guide.md) has mutation module
-
->Altdns also have dns resolver but it's very slow, so it will be better to generate list with altdns and resolve it with another tool (with [massdns](https://github.com/blechschmidt/massdns))
 
 ### Certificate search
 An SSL/TLS certificate usually contains domain names, sub-domain names and email addresses. The simplest way to collect data from certificates is to connect to crt.sh through web (could be unstable), [example](https://github.com/Sab0tag3d/Jesus-s-domains-enumeration/blob/master/scripts/crt.sh)
@@ -74,7 +73,7 @@ One of the helpful ways is to use [BGP Toolkit](https://bgp.he.net/) by this way
 
 
 ### Domain validation
-After subdomains collected it could be helpful to check it's validity. Bash [script](https://github.com/Sab0tag3d/Jesus-s-domains-enumeration/blob/master/scripts/valid.sh)
+After subdomains collected it could be helpful to check it's validity. Bash [script](https://github.com/Sab0tag3d/Jesus-s-domains-enumeration/blob/master/scripts/valid.sh)  
 Python tool for this: [dnsvalidator](https://github.com/vortexau/dnsvalidator)
 
 ## Next steps. Active recon
