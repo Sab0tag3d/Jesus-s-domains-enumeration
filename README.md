@@ -37,6 +37,7 @@ Start with main domain here: [BGP Toolkit](https://bgp.he.net/) and check every 
 ### Subdomain name alterations
 [Altdns](https://github.com/infosec-au/altdns) - Python tool that could generate a lot of mutation of input domains list   
 > Altdns also have dns resolver but it's very slow, so it will be better to generate list with altdns and resolve it with another tool (with [massdns](https://github.com/blechschmidt/massdns))  
+
 [Amass](https://github.com/OWASP/Amass/blob/master/doc/user_guide.md) has mutation module
 
 ### Certificate search
